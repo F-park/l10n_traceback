@@ -11,3 +11,7 @@ license = { text = "MIT" }
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
+
+[project.urls]
+Homepage = "https://github.com/F-park/l10n_traceback"
+Issues = "https://github.com/F-park/l10n_traceback/issues"

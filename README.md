@@ -1,7 +1,8 @@
 
+# [l10n_traceback](https://github.com/F-park/l10n_traceback)
+
 ### 安装
-`pip install git+https://github.com/F-park/l10n_traceback`
-> ps: 完成会上传 pypi
+`pip install l10n_traceback`
 
 ### 使用
 
@@ -18,5 +19,6 @@
 ### 测试
 
 ```
-python -m unittest
+pip install tox
+tox
 ```
