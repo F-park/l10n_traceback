@@ -4,12 +4,13 @@ on:
   push:
     branches:
       - main
-      - dev
+    paths:
+      - "l10n_traceback/**"
+      - "tests/**"
 
   pull_request:
     branches:
       - main
-      - dev
     paths:
       - "l10n_traceback/**"
       - "tests/**"

@@ -26,7 +26,7 @@ def except_hook(
 
     try:
         _except_hook(e_type, e_value, e_traceback)
-    except:
+    except Exception:
         traceback.print_exc()
 
 
@@ -60,7 +60,6 @@ def _except_hook(
     e_type: "type[BaseException]", e_value: BaseException, e_traceback: "TracebackType | None"
 ):
     tbs = traceback.format_exception(e_type, e_value, e_traceback)
-    # print(list(tbs), list(iter_tbs(tbs)))
     for line in iter_tbs(tbs):
         if line == texts["traceback"]:
             print_error(Color.RED % "错误回溯")
@@ -153,8 +152,6 @@ def handle_exception(exception: str, message: str):
 
 
 def handle_file(file_str: str, line_str: str, module_str: Optional[str] = None):
-    # if module_str.find("\n") == module_str.rfind("\n"):
-    #     return  # skip no code block line
     if module_str is None:
         line_str, _, module_str = line_str.partition("\n")
         module_str = "\n" + module_str

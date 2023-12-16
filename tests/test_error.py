@@ -9,24 +9,24 @@ class TestError(unittest.TestCase):
     def test_iter_tbs(self):
         try:
             1 / 0  # type:ignore
-        except:
+        except Exception:
             tbs = iter_tbs(traceback.format_exception(*sys.exc_info()))
             self.assertEqual((len([*tbs])), 3)
 
         try:
-            try:
-                raise Exception("test\n\n")
+            try:  # sourcery skip: raise-from-previous-error
+                raise RuntimeError("test\n\n")
             except Exception:
-                raise Exception("\n\ntest")
-        except:
+                raise RuntimeError("\n\ntest")
+        except Exception:
             tbs = iter_tbs(traceback.format_exception(*sys.exc_info()))
             self.assertEqual((len([*tbs])), 7)
 
         try:
             try:
-                raise Exception("test\n\n")
+                raise RuntimeError("test\n\n")
             except Exception as e:
-                raise Exception("\n\ntest") from e
-        except:
+                raise RuntimeError("\n\ntest") from e
+        except Exception:
             tbs = iter_tbs(traceback.format_exception(*sys.exc_info()))
             self.assertEqual((len([*tbs])), 7)
