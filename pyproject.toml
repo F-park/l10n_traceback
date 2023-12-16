@@ -1,0 +1,13 @@
+[project]
+name = "l10n_traceback"
+version = "0.0.1"
+description = "将 python 的报错翻译成中文\ntranslate python traceback to chinese"
+authors = [{ name = "F-park", email = "1527093924@qq.com" }]
+dependencies = []
+requires-python = ">=3.8"
+readme = "README.md"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
